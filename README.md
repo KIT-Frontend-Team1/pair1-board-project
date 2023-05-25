@@ -26,5 +26,6 @@ reducer, context
 
 5/24 : 기초 ui 디자인
 5/25 : faker.js 목데이터 추가
-<img width="1268" alt="스크린샷 2023-05-25 오후 2 10 40" src="https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/0492771c-2bbf-46ed-a454-1346a59e49e8">
+<img width="1270" alt="스크린샷 2023-05-25 오후 2 15 46" src="https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/30001b74-0ff2-48d4-be6a-43508335109c">
+
 

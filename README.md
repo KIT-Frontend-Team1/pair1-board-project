@@ -5,7 +5,7 @@
 ### 2. 만든이
 
 1조 페어 1팀
-오혜린 / 장상준 / 박세리
+오혜린 / 장상준
 
 ### 3. 개발기능
 
@@ -17,6 +17,8 @@
 
 (1) styled-components
 (2) faker.js
+(3) react-icons
+(4) react-slick(이미지 캐루셀)
 
 #### 전역상태관리
 
@@ -26,3 +28,4 @@ reducer, context
 
 5/24 : 기초 ui 디자인
 5/25 : faker.js 목데이터 추가
+5/26 :

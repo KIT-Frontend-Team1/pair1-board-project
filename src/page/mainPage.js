@@ -3,10 +3,15 @@ import PostList from "./components/PostList";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import AddModal from "./components/AddModal";
+import { useContext } from "react";
+import ModalContext from "../context/ModalContext";
+
 const MainPage = () => {
+  const { isModalOpen, setIsModalOpen } = useContext(ModalContext);
+
   return (
     <Wrapper>
-      {/* <AddModal /> */}
+      {isModalOpen && <AddModal />}
       <LayOut>
         <PostList />
       </LayOut>
@@ -17,16 +22,5 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
-// const ButtonContainer = styled.div`
-//   width: 80%;
-//   height: 100px;
-//   background-color: yellow;
-//   padding-left: 20%;
-//   right: 0;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
 
 const Wrapper = styled.div``;

@@ -8,21 +8,24 @@ const { faker } = require("@faker-js/faker");
 // 포스트 이미지(2 ~4 개 랜덤)
 // 댓글 (1~5개 랜덤)
 // 각 댓글마다 User의 정보(아이디, 이름), myComment여부, 글내용 있음
-const MockPost = (count) => {
+
+//
+//게시물 객체를 만드는 함수
+export const MockPost = (count) => {
   return Array(count)
     .fill()
     .map(() => ({
       User: {
         id: faker.string.alphanumeric(6),
         name: faker.internet.userName(),
-        title: faker.lorem.sentence(),
-        content: faker.lorem.sentence(),
       },
+      title: faker.lorem.sentence(),
+      content: faker.lorem.sentence(),
       //2와 4 사이의 랜덤한 이미지 값을 반환
       PostImg: Array(Math.floor(Math.random() * 3 + 2))
         .fill()
-        .map(() => faker.image.url()),
-      Comments: Array(Math.floor(Math.random() * 5 + 1))
+        .map(() => faker.image.url()), //nature. animal. city url 기본
+      Comments: Array(Math.floor(Math.random() * 10 + 1))
         .fill()
         .map(() => {
           return {
@@ -38,6 +41,8 @@ const MockPost = (count) => {
 };
 console.log("asdfa", MockPost(1));
 console.log("comment", MockPost(1)[0].Comments);
+console.log("comment", MockPost(1)[0].Comments);
+
 // comment [
 //     {
 //       User: { id: '29krAJ', name: 'Arnulfo_OKon4' },

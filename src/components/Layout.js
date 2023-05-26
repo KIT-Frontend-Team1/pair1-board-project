@@ -18,8 +18,8 @@ const Wrapper = styled.div`
 const ContentContainer = styled.div`
   margin-left: 15%;
   width: 85%;
-  background-color: skyblue;
+  background-color: #ececec;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 50px;
 `;

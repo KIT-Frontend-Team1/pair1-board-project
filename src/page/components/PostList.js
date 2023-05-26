@@ -1,10 +1,19 @@
 import styled from "styled-components";
 import OnePost from "./OnePost";
+import { MockPost } from "../../data/faker";
 
 const PostList = () => {
+  //pageData : 한 페이지에 들어가는 데이터 수
+  const PageData = MockPost(3);
+  console.log(PageData);
+
   return (
     <Wrapper>
-      <OnePost />
+      {PageData.map((data) => {
+        return <OnePost data={data} />;
+      })}
+      {/*이미지 불러오는 법*/}
+      {/* <Img src={`${data[0].PostImg[0]}`} /> */}
     </Wrapper>
   );
 };
@@ -12,9 +21,7 @@ const PostList = () => {
 export default PostList;
 
 const Wrapper = styled.div`
-  padding: 50px;
-  width: 80%;
-  background-color: skyblue;
+  width: 50%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

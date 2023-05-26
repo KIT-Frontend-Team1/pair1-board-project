@@ -23,6 +23,7 @@
 reducer, context
 
 ### 5. 진행과정 (밑으로 계속 추가해주세요!)
+
 5/24 : 기초 ui 디자인
 5/25 : faker.js 목데이터 추가
 <img width="1270" alt="스크린샷 2023-05-25 오후 2 15 46" src="https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/30001b74-0ff2-48d4-be6a-43508335109c">
@@ -33,3 +34,9 @@ reducer, context
 5/24 : 기초 ui 디자인
 5/25 : faker.js 목데이터 추가
 5/26 : 페이지네이션 추가
+=======
+
+5/24 : 기초 ui 디자인
+5/25 : faker.js 목데이터 추가
+<img width="1270" alt="스크린샷 2023-05-25 오후 2 15 46" src="https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/30001b74-0ff2-48d4-be6a-43508335109c">
+

@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
 //reset css. css를 기본으로 만드는 것
 *{
     box-sizing: border-box;
+    border: none;
 }
 body{
     //body에서 쓰는 색상
@@ -22,6 +23,6 @@ button{
     border:none;
     outline:none;
 }
-
 `;
+
 export default GlobalStyles;

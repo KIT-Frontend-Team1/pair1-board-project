@@ -28,4 +28,4 @@ reducer, context
 
 5/24 : 기초 ui 디자인
 5/25 : faker.js 목데이터 추가
-5/26 :
+5/26 : 레이아웃, faker.js 렌더링 작업

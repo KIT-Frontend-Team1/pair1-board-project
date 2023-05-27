@@ -3,9 +3,9 @@ import 'slick-carousel/slick/slick-theme.css'
 import React from 'react'
 import Slider from 'react-slick'
 import styled from 'styled-components'
-import { CustomNextArrow, CustomPrevArrow } from './CustomArrow'
-// import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-const SimpleSlider = ({ ImgArr }) => {
+// import { CustomNextArrow, CustomPrevArrow } from './CustomArrow'
+import { CustomNextArrow, CustomPrevArrow } from '../style/CustomArrow'
+const SimpleSlider = ({ postImg }) => {
 	const settings = {
 		dots: false,
 		infinite: true,
@@ -18,9 +18,9 @@ const SimpleSlider = ({ ImgArr }) => {
 	return (
 		<Wrapper>
 			<Slider {...settings}>
-				{ImgArr.map(img => {
+				{postImg.map((img, index) => {
 					return (
-						<ImageContainer>
+						<ImageContainer key={index}>
 							<Img src={`${img}`} />
 						</ImageContainer>
 					)
@@ -46,19 +46,4 @@ const Wrapper = styled.div`
 	width: 500px;
 	height: 500px;
 	background-color: grey;
-`
-
-const Div = styled.div`
-	/* width: 50px;
-  height: 50px;
-  position: absolute;
-  right: 30px;
-  z-index: 99;
-  text-align: right;
-  line-height: 30px; */
-`
-
-const Icon = styled.div`
-	width: 30px;
-	height: 50px;
 `

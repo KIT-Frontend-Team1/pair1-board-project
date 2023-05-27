@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { GrFormClose } from 'react-icons/gr'
 import { useContext } from 'react'
-import ModalContext from '../../context/ModalContext'
+import ModalContext from '../context/ModalContext'
 
 const AddModal = () => {
 	const { isModalOpen, setIsModalOpen } = useContext(ModalContext)

@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import AddModal from "./components/AddModal";
 import { useContext } from "react";
 import ModalContext from "../context/ModalContext";
+import Pagination from "./components/Pagination";
 
 const MainPage = () => {
   const { isModalOpen, setIsModalOpen } = useContext(ModalContext);
@@ -16,7 +17,7 @@ const MainPage = () => {
         <PostList />
       </LayOut>
       {/*페이지 버튼 컨테이너*/}
-      <Footer>페이지 버튼 들어가는 곳</Footer>
+      <Footer><Pagination/></Footer>
     </Wrapper>
   );
 };

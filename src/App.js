@@ -1,5 +1,5 @@
 import './App.css'
-import MainPage from './page/MainPage'
+import MainPage from './page/mainPage'
 import GlobalStyles from './style/global'
 import { ModalContextProvider } from './context/ModalContext'
 function App() {

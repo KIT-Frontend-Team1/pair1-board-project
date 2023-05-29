@@ -10,7 +10,7 @@ const Comments = ({ comments }) => {
 				{comments.map((comment, index) => {
 					return (
 						<OneComment key={index}>
-							<div>{comment.User.name}</div>
+							<div>{comment.user.name}</div>
 							<div>{comment.content}</div>
 						</OneComment>
 					)

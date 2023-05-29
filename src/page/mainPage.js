@@ -14,17 +14,29 @@ const MainPage = () => {
 
 	//onAddPost : 포스트를 추가해주는 함수. 새로운 newPost객체를 생성하여 setData를
 	//이용해 기존 data에 추가해 준다. AddModal에 props로 전달해준다.
-	const onAddPost = () => {
-		//로직 추가
-	}
+	const onAddPost = (Text) => {
+		const newPost = {
+			id: Math.floor(Math.random() * 10000),
+			user: {
+				id: 123456,
+				name: 'me',
+			},
+			content: Text,
+			postImg: [],
+			comment: [],
+			myPost: true,
+		}
+		setData([newPost, ...data]);
+	  };
+	
 
 	return (
 		<Wrapper>
 			{isModalOpen && (
 				<AddModal
+					onAddPost={onAddPost}
 					setIsModalOpen={setIsModalOpen}
 					isModalOpen={isModalOpen}
-					onAddPost={onAddPost}
 				/>
 			)}
 			<Layout setIsModalOpen={setIsModalOpen}>

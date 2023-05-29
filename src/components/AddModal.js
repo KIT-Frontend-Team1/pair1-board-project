@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { GrFormClose } from 'react-icons/gr'
+import { useState } from 'react'
 
-const AddModal = ({ setIsModalOpen, isModalOpen }) => {
+const AddModal = ({onAddPost, setIsModalOpen, isModalOpen }) => {
 	//글 추가하는 모달창 닫는 함수
 	const onClickModalClose = () => {
 		if (isModalOpen) {
@@ -10,13 +11,24 @@ const AddModal = ({ setIsModalOpen, isModalOpen }) => {
 		return isModalOpen
 	}
 
+	const [Text, setText] = useState('');
+    const onChangeinput = (e) => {
+        setText(e.target.value);
+		console.log(Text);
+    }; 
+
+	const onSubmit = (e) => {
+		e.preventDefault()
+		onAddPost(Text) 
+	}
+
 	return (
 		<Wrapper>
-			<Form>
+			<Form onSubmit={onSubmit}>
 				<RelativeContainer>
 					<GrFormClose size="50px" onClick={onClickModalClose} />
 					<div>포스트 작성하는 곳</div>
-					<Input />
+					<Input onChange={onChangeinput}value={Text}/>
 					<Button>POST</Button>
 				</RelativeContainer>
 			</Form>

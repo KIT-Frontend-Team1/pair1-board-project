@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 import { GrFormClose } from 'react-icons/gr'
-import { useContext } from 'react'
-import ModalContext from '../context/ModalContext'
 
-const AddModal = () => {
-	const { isModalOpen, setIsModalOpen } = useContext(ModalContext)
-
+const AddModal = ({ setIsModalOpen, isModalOpen }) => {
 	//글 추가하는 모달창 닫는 함수
 	const onClickModalClose = () => {
 		if (isModalOpen) {
@@ -20,8 +16,8 @@ const AddModal = () => {
 				<RelativeContainer>
 					<GrFormClose size="50px" onClick={onClickModalClose} />
 					<div>포스트 작성하는 곳</div>
-					<TextArea>asdf</TextArea>
-					<Button type="button">POST</Button>
+					<Input />
+					<Button>POST</Button>
 				</RelativeContainer>
 			</Form>
 		</Wrapper>
@@ -29,6 +25,14 @@ const AddModal = () => {
 }
 export default AddModal
 
+const Input = styled.input`
+	margin-top: 30px;
+	width: 500px;
+	height: 350px;
+	border: 1px solid black;
+	font-size: 20px;
+	padding-left: 20px;
+`
 const Wrapper = styled.div`
 	position: fixed;
 	top: 0;
@@ -48,13 +52,6 @@ const Form = styled.form`
 	background-color: white;
 	border-radius: 8px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-`
-
-const TextArea = styled.textarea`
-	width: 480px;
-	height: 400px;
-	background-color: yellowgreen;
-	margin: 0 auto;
 `
 
 const RelativeContainer = styled.div`

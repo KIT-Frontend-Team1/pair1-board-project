@@ -3,11 +3,12 @@ import 'slick-carousel/slick/slick-theme.css'
 import React from 'react'
 import Slider from 'react-slick'
 import styled from 'styled-components'
-// import { CustomNextArrow, CustomPrevArrow } from './CustomArrow'
 import { CustomNextArrow, CustomPrevArrow } from '../style/CustomArrow'
+
+//이미지캐루셀 컴포넌트.OnePost의 하위 컴포넌트. postImg를 받아서 렌더링함.
 const SimpleSlider = ({ postImg }) => {
 	const settings = {
-		dots: false,
+		dots: true,
 		infinite: true,
 		speed: 500,
 		slidesToShow: 1,

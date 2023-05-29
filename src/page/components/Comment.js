@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+//OnePost의 하위 컴포넌트 comments를 받아서 렌더링
 const Comments = ({ comments }) => {
 	console.log(comments)
 	return (
@@ -34,7 +35,7 @@ const Title = styled.div`
 const CommentContainer = styled.div`
 	margin-top: 40px;
 	background-color: skyblue;
-	height: 480px;
+	height: 520px;
 	width: 330px;
 	overflow-y: scroll;
 `
@@ -44,14 +45,16 @@ const Wrapper = styled.div`
 	position: relative;
 	padding-top: 10px;
 	padding-left: 10px;
+	display: flex;
+	flex-direction: column;
 `
 const OneComment = styled.div`
 	margin-bottom: 20px;
 `
 const CommentInput = styled.input`
+	margin-top: 10px;
 	width: 330px;
 	height: 200px;
-	position: absolute;
 	bottom: 10px;
 	background-color: yellowgreen;
 `

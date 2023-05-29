@@ -1,6 +1,6 @@
-//reset css 속성
+//global.js : reset css 속성 넣음
 
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 //reset css. css를 기본으로 만드는 것
@@ -23,6 +23,6 @@ button{
     border:none;
     outline:none;
 }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

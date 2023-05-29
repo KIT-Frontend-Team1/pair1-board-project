@@ -1,21 +1,35 @@
 import styled from 'styled-components'
-import { useContext } from 'react'
-import ModalContext from '../context/ModalContext'
-import PostList from './components/PostList'
+import { useState } from 'react'
 import Layout from '../components/Layout'
 import Paging from './components/Pagination'
 import AddModal from '../components/AddModal'
+import { DATA } from '../data/faker'
+
+//mainpage
 const MainPage = () => {
-	const { isModalOpen, setIsModalOpen } = useContext(ModalContext)
+	//addModal이 보이면 true, 아니면 false
+	const [isModalOpen, setIsModalOpen] = useState(false)
+	//data : post로 뿌려줄 데이터. 초기 데이터는 faker에서 가져온 DATA.
+	const [data, setData] = useState(DATA)
+
+	//onAddPost : 포스트를 추가해주는 함수. 새로운 newPost객체를 생성하여 setData를
+	//이용해 기존 data에 추가해 준다. AddModal에 props로 전달해준다.
+	const onAddPost = () => {
+		//로직 추가
+	}
 
 	return (
 		<Wrapper>
-			{isModalOpen && <AddModal />}
-			<Layout>
-				<PostList />
-				<Paging />
+			{isModalOpen && (
+				<AddModal
+					setIsModalOpen={setIsModalOpen}
+					isModalOpen={isModalOpen}
+					onAddPost={onAddPost}
+				/>
+			)}
+			<Layout setIsModalOpen={setIsModalOpen}>
+				<Paging data={data} />
 			</Layout>
-			{/*페이지 버튼 컨테이너*/}
 		</Wrapper>
 	)
 }

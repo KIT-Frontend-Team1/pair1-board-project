@@ -3,15 +3,18 @@ import styled from 'styled-components'
 import SimpleSlider from './ImgSlider'
 import Comments from './Comment'
 
+//OnePost : PostList의 하위 컴포넌트
+// 포스트를 하나하나 받아 렌더링 합니다.
 const OnePost = ({ data }) => {
-	const name = data.User.name
-	const content = data.content
-	const comments = data.Comments
-	const postImg = data.PostImg
+	//props로 받은 data에서 name(이름), content(내용),
+	//comments(댓글), postImg(포스트이미지)를 구조분해 할당으로 변수 선언
+	const name = data.user.name
+	const { content, comments, postImg } = data
 
-	//comment창을 보여주는 state
+	//comment창을 보여주는 state. 보여주면 true, 아니면 false
 	const [isComment, setIsComment] = useState(false)
 
+	//isComment를 바꿔주는 함수
 	const onClickCommentShow = () => {
 		setIsComment(prev => !prev)
 	}
@@ -26,7 +29,7 @@ const OnePost = ({ data }) => {
 				<ButtonContainer>
 					수정, 삭제 버튼 들어가는 곳
 					<Button onClick={onClickCommentShow} type="button">
-						댓글 {comments.length}개
+						댓글
 					</Button>
 				</ButtonContainer>
 				<TextContainer>{content}</TextContainer>
@@ -97,4 +100,5 @@ const ButtonContainer = styled.div`
 	position: relative;
 	display: flex;
 	justify-content: space-evenly;
+	margin-top: 50px;
 `

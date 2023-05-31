@@ -21,8 +21,8 @@ https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/e5340
 
 <table style="margin-left: auto; margin-right: auto; width: 600px; height: 200px;">
   <tr>
-    <td><a href="https://github.com/yesoryeseul">🥰 오혜린</a></td>
-    <td><a href="https://github.com/seungyonggo">❄️ 장상준</a></td>
+    <td><a href="https://github.com/yesoryeseul">🐬 오혜린</a></td>
+    <td><a href="https://github.com/seungyonggo">🧑‍🌾 장상준</a></td>
   </tr>
 </table>
 

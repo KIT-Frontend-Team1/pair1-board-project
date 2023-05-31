@@ -8,7 +8,9 @@ notion : https://www.notion.so/2-1-c6903f97f8ed4f65a9a06f826a4d5bb1
 
 https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/d5fd0f3e-13eb-4b52-8c9d-485114342dd2
 
-## ➡️ 프로젝트 소개
+https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/e5340fe0-26f3-44fc-9aba-33094f812898
+
+소개
 
 😺 -포스트 crud, 댓글 추가, 삭제(본인만) -이미 캐루셀을 통한 포스트 이미지 보기 -페이지네이션
 

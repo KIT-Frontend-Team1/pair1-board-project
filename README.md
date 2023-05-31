@@ -2,6 +2,8 @@
 
 ### 1조 1페어의 게시판 토이 프로젝트 레퍼지토리입니다
 
+notion : https://www.notion.so/2-1-c6903f97f8ed4f65a9a06f826a4d5bb1
+
 ## ➡️ 프로젝트 완성본
 
 https://github.com/KIT-Frontend-Team1/pair1-board-project/assets/125418818/d5fd0f3e-13eb-4b52-8c9d-485114342dd2

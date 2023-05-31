@@ -4,13 +4,16 @@ import OnePost from './OnePost'
 //PostList : 실제 포스트들(3개)가 페이지마다 렌더링 되는 컴포넌트
 //Pagination에서 currentPageData를 받아서
 //Onepost로 map을 돌려 post를 렌더링
-const PostList = ({ currentPageData }) => {
+const PostList = ({ currentPageData, onDelete , onUpdate , onCheck}) => {
 	console.log('daa', currentPageData)
 	return (
 		<Wrapper>
 			{currentPageData &&
 				currentPageData.map(data => (
-					<OnePost key={Math.floor(Math.random() * 10000)} data={data} />
+					<OnePost 
+						key={Math.floor(Math.random() * 10000)} data={data}
+						onDelete={onDelete}
+						onUpdate={onUpdate} />
 				))}
 		</Wrapper>
 	)

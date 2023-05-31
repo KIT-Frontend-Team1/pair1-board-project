@@ -6,7 +6,7 @@ import PostList from './PostList'
 //Paging : 페이지네이션. mainPage에서 데이터를 받아와 현재 페이지에 해당하는
 //데이터를 잘라서 렌더링합니다.
 //해당 페이지의 포스트와 버튼 컨테이너가 들어있습니다.
-const Paging = ({ data }) => {
+const Paging = ({ data , onDelete , onUpdate}) => {
 	//currentPage: 현재 페이지
 	const [currentPage, setCurrentPage] = useState(1)
 	const postPerPage = 3
@@ -25,7 +25,10 @@ const Paging = ({ data }) => {
 	return (
 		<Wrapper>
 			{/*현재페이지의 데이터를 넘겨줌*/}
-			<PostList currentPageData={currentPageData} />
+			<PostList 
+				currentPageData={currentPageData}
+				onDelete={ onDelete }
+				onUpdate={ onUpdate } />
 			<PaginationBox>
 				<Pagination
 					activePage={currentPage} // 현재 페이지

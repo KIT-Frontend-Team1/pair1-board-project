@@ -1,32 +1,32 @@
-import LayOut from "../components/Layout";
-import PostList from "./components/PostList";
-import styled from "styled-components";
-import Footer from "../components/Footer";
-import AddModal from "./components/AddModal";
+import styled from 'styled-components'
+import { useState } from 'react'
+import Layout from '../components/Layout'
+import Paging from './components/Pagination'
+import AddModal from '../components/AddModal'
+import { usePostContext } from '../context/postContext'
+import LoadingPage from './loadingPage'
+
+//mainpage : 가장 메인이 되는 페이지 입니다.
 const MainPage = () => {
-  return (
-    <Wrapper>
-      {/* <AddModal /> */}
-      <LayOut>
-        <PostList />
-      </LayOut>
-      {/*페이지 버튼 컨테이너*/}
-      <Footer>페이지 버튼 들어가는 곳</Footer>
-    </Wrapper>
-  );
-};
+	//addModal이 보이면 true, 아니면 false
+	const [isModalOpen, setIsModalOpen] = useState(false)
+	//data : post로 뿌려줄 데이터. 초기 데이터는 faker에서 가져온 DATA.
+	const [data, dispatch] = usePostContext()
 
-export default MainPage;
+	return data && data.length > 0 ? (
+		<Wrapper>
+			{isModalOpen && (
+				<AddModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
+			)}
+			<Layout setIsModalOpen={setIsModalOpen}>
+				<Paging data={data} />
+			</Layout>
+		</Wrapper>
+	) : (
+		<LoadingPage />
+	)
+}
 
-// const ButtonContainer = styled.div`
-//   width: 80%;
-//   height: 100px;
-//   background-color: yellow;
-//   padding-left: 20%;
-//   right: 0;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
+export default MainPage
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div``

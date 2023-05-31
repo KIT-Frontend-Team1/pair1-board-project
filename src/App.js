@@ -1,13 +1,16 @@
-import "./App.css";
-import MainPage from "./page/MainPage";
-import GlobalStyles from "./style/global";
+import './App.css'
+import MainPage from './page/mainPage'
+import GlobalStyles from './style/global'
+import PostContextProvider from './context/postContext'
 function App() {
-  return (
-    <div className="App">
-      <GlobalStyles />
-      <MainPage />
-    </div>
-  );
+	return (
+		//globalStyles 사용
+		//mainPage만 렌더링
+		<PostContextProvider>
+			<GlobalStyles />
+			<MainPage />
+		</PostContextProvider>
+	)
 }
 
-export default App;
+export default App

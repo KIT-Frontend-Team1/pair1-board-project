@@ -50,6 +50,8 @@ const Wrapper = styled.div`
 const PaginationBox = styled.div`
 	position: absolute;
 	bottom: 0;
+	width: 100%;
+
 	.pagination {
 		display: flex;
 		justify-content: center;

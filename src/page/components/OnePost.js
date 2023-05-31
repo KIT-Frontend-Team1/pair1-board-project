@@ -2,8 +2,8 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import SimpleSlider from './ImgSlider'
 import Comments from './Comment'
-import { AiFillDelete } from 'react-icons/ai';
-import { AiFillEdit } from 'react-icons/ai';
+import { AiFillDelete } from 'react-icons/ai'
+import { AiFillEdit } from 'react-icons/ai'
 
 //OnePost : PostList의 하위 컴포넌트
 // 포스트를 하나하나 받아 렌더링 합니다.
@@ -29,7 +29,7 @@ const OnePost = ({ data }) => {
 					<SimpleSlider postImg={postImg} />
 				</ImageContainer>
 				<ButtonContainer>
-					<AiFillEdit />  <AiFillDelete /> 
+					<AiFillEdit /> <AiFillDelete />
 					<Button onClick={onClickCommentShow} type="button">
 						댓글
 					</Button>
@@ -48,6 +48,8 @@ const OnePost = ({ data }) => {
 export default OnePost
 
 const Wrapper = styled.div`
+	width: 100%;
+	margin: 0 100px;
 	background-color: white;
 	display: flex;
 	margin-bottom: 50px;

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { GrFormClose } from 'react-icons/gr'
 import { useState } from 'react'
 
-const AddModal = ({onAddPost, setIsModalOpen, isModalOpen }) => {
+const AddModal = ({ onAddPost, setIsModalOpen, isModalOpen }) => {
 	//글 추가하는 모달창 닫는 함수
 	const onClickModalClose = () => {
 		if (isModalOpen) {
@@ -11,16 +11,31 @@ const AddModal = ({onAddPost, setIsModalOpen, isModalOpen }) => {
 		return isModalOpen
 	}
 
-	const [Text, setText] = useState('');
-    const onChangeinput = (e) => {
-        setText(e.target.value);
-		console.log(Text);
-    }; 
-
-	const onSubmit = (e) => {
-		e.preventDefault()
-		onAddPost(Text) 
+	const [Text, setText] = useState('')
+	const onChangeinput = e => {
+		setText(e.target.value)
 	}
+
+	const [Img, setImg] = useState([])
+	const onChangeImg = e => {
+		const fileArr = Array.from(e.target.files)
+		// console.log(fileArr)
+		// setImg(prev => [...prev, ...fileArr])
+		console.log('image', Img)
+		for (let i = 0; i < fileArr.length; i++) {
+			const imageUrl = URL.createObjectURL(fileArr[i])
+			setImg(prev => [...prev, imageUrl])
+		}
+	}
+
+	const onSubmit = e => {
+		e.preventDefault()
+		onAddPost(Text, Img)
+	}
+
+	// const onAddImage = () => {
+
+	// }
 
 	return (
 		<Wrapper>
@@ -28,7 +43,14 @@ const AddModal = ({onAddPost, setIsModalOpen, isModalOpen }) => {
 				<RelativeContainer>
 					<GrFormClose size="50px" onClick={onClickModalClose} />
 					<div>포스트 작성하는 곳</div>
-					<Input onChange={onChangeinput}value={Text}/>
+					{/*이미지 업로드 */}
+					<input type="file" accept="image/*" multiple onChange={onChangeImg} />
+
+					{/* {Img.map(image => {
+						return <div>{image}</div>
+					})} */}
+					<Input onChange={onChangeinput} value={Text} />
+					<button>사진업로드</button>
 					<Button>POST</Button>
 				</RelativeContainer>
 			</Form>
@@ -78,5 +100,9 @@ const Button = styled.button`
 	width: 100px;
 	height: 50px;
 	border-radius: 25px;
-	margin-top: 50px;
 `
+
+// let fileURLs = []
+// for (let i = 0; i < fileArr.length; i++) {
+// 	// const nowImgUrl = URL.createObjectURL(fileArr[i])
+// }

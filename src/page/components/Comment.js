@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 //OnePost의 하위 컴포넌트 comments를 받아서 렌더링
 const Comments = ({ comments }) => {
-	console.log(comments)
 	return (
 		<Wrapper>
 			<Title>Comment</Title>
@@ -10,7 +9,7 @@ const Comments = ({ comments }) => {
 				{comments.map((comment, index) => {
 					return (
 						<OneComment key={index}>
-							<div>{comment.user.name}</div>
+							<CommentName>{comment.user.name}</CommentName>
 							<div>{comment.content}</div>
 						</OneComment>
 					)
@@ -34,7 +33,7 @@ const Title = styled.div`
 `
 const CommentContainer = styled.div`
 	margin-top: 40px;
-	background-color: skyblue;
+	/* background-color: skyblue; */
 	height: 520px;
 	width: 330px;
 	overflow-y: scroll;
@@ -56,5 +55,11 @@ const CommentInput = styled.input`
 	width: 330px;
 	height: 200px;
 	bottom: 10px;
-	background-color: yellowgreen;
+	/* background-color: yellowgreen; */
+	border: 1px solid black;
+`
+
+const CommentName = styled.div`
+	font-weight: 500;
+	font-size: 16px;
 `

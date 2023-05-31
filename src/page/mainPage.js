@@ -5,7 +5,8 @@ import Paging from './components/Pagination'
 import AddModal from '../components/AddModal'
 import { usePostContext } from '../context/postContext'
 import LoadingPage from './loadingPage'
-//mainpage
+
+//mainpage : 가장 메인이 되는 페이지 입니다.
 const MainPage = () => {
 	//addModal이 보이면 true, 아니면 false
 	const [isModalOpen, setIsModalOpen] = useState(false)

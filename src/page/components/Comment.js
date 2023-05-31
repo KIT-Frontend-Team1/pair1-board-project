@@ -6,15 +6,17 @@ import {
 	usePostContext,
 } from '../../context/postContext'
 
-//OnePost의 하위 컴포넌트 comments를 받아서 렌더링
-const Comments = ({ comments, id, setIsComment }) => {
+//Comments : 댓글 보여주는 컴포넌트
+const Comments = ({ comments, id }) => {
 	const [commentText, setCommentText] = useState('')
 	const [post, dispatch] = usePostContext()
-	console.log(comments)
 
+	//작성한 댓글 관리하는 함수
 	const onChangeCommentInput = e => {
 		setCommentText(e.target.value)
 	}
+
+	//댓글 작성후 게시하는 함수
 	const onSubmitComment = e => {
 		e.preventDefault()
 		dispatch({
@@ -27,8 +29,8 @@ const Comments = ({ comments, id, setIsComment }) => {
 		e.stopPropagation()
 	}
 
+	//댓글 삭제하는 함수. 해당 댓글의 CommentId를 dispatch의 인자로 넘겨줘서 삭제함
 	const onDeleteComment = CommentId => {
-		console.log('target', CommentId)
 		dispatch({
 			type: DELETE_COMMENT,
 			payload: {
@@ -51,6 +53,8 @@ const Comments = ({ comments, id, setIsComment }) => {
 							<OneComment key={index}>
 								<CommentName myComment={myComment}>
 									{comment.user.name}
+									{/*myComment가 true일때만 삭제 버튼이 보임
+									삭제할 때 해당 댓글의 id를 props로 넘김(해당 댓글을 판별하기 위함)*/}
 									{myComment ? (
 										<button onClick={() => onDeleteComment(comment.user.id)}>
 											삭제
@@ -64,6 +68,7 @@ const Comments = ({ comments, id, setIsComment }) => {
 			</CommentContainer>
 			<form onSubmit={onSubmitComment}>
 				<CommentInput
+					value={commentText}
 					onChange={onChangeCommentInput}
 					placeholder="댓글 작성..."
 				/>

@@ -5,7 +5,6 @@ import OnePost from './OnePost'
 //Pagination에서 currentPageData를 받아서
 //Onepost로 map을 돌려 post를 렌더링
 const PostList = ({ currentPageData }) => {
-	console.log('daa', currentPageData)
 	return (
 		<Wrapper>
 			{currentPageData &&

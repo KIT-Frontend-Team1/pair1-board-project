@@ -18,6 +18,7 @@ const Paging = ({ data }) => {
 		(currentPage - 1) * postPerPage,
 		(currentPage - 1) * postPerPage + postPerPage,
 	)
+
 	const handlePageChange = page => {
 		setCurrentPage(page)
 	}

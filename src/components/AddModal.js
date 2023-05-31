@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import { GrFormClose } from 'react-icons/gr'
 import { useState } from 'react'
+import { usePostContext } from '../context/postContext'
+import { ADD_POST } from '../context/postContext'
+const AddModal = ({ setIsModalOpen, isModalOpen }) => {
+	const [data, dispatch] = usePostContext()
 
-const AddModal = ({ onAddPost, setIsModalOpen, isModalOpen }) => {
 	//글 추가하는 모달창 닫는 함수
 	const onClickModalClose = () => {
 		if (isModalOpen) {
@@ -12,15 +15,16 @@ const AddModal = ({ onAddPost, setIsModalOpen, isModalOpen }) => {
 	}
 
 	const [Text, setText] = useState('')
+	const [Img, setImg] = useState([])
+
+	//text쓰는 input 관리하는 로직
 	const onChangeinput = e => {
 		setText(e.target.value)
 	}
 
-	const [Img, setImg] = useState([])
+	//이미지 업로드를 관리하는 로직, Img에 url로 변환한 이미지 주소를 넣어줌
 	const onChangeImg = e => {
 		const fileArr = Array.from(e.target.files)
-		// console.log(fileArr)
-		// setImg(prev => [...prev, ...fileArr])
 		console.log('image', Img)
 		for (let i = 0; i < fileArr.length; i++) {
 			const imageUrl = URL.createObjectURL(fileArr[i])
@@ -28,14 +32,23 @@ const AddModal = ({ onAddPost, setIsModalOpen, isModalOpen }) => {
 		}
 	}
 
+	//제출 로직
 	const onSubmit = e => {
 		e.preventDefault()
+		console.log('submmit', Text, Img)
 		onAddPost(Text, Img)
 	}
 
-	// const onAddImage = () => {
-
-	// }
+	//포스트 추가로직
+	const onAddPost = (Text, Img) => {
+		dispatch({
+			type: ADD_POST,
+			payload: {
+				Text,
+				Img,
+			},
+		})
+	}
 
 	return (
 		<Wrapper>
@@ -45,12 +58,7 @@ const AddModal = ({ onAddPost, setIsModalOpen, isModalOpen }) => {
 					<div>포스트 작성하는 곳</div>
 					{/*이미지 업로드 */}
 					<input type="file" accept="image/*" multiple onChange={onChangeImg} />
-
-					{/* {Img.map(image => {
-						return <div>{image}</div>
-					})} */}
 					<Input onChange={onChangeinput} value={Text} />
-					<button>사진업로드</button>
 					<Button>POST</Button>
 				</RelativeContainer>
 			</Form>

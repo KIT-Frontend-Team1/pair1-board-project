@@ -43,6 +43,10 @@ const Button = styled.button`
 	width: 100px;
 	height: 50px;
 	border-radius: 25px;
+	:hover {
+		background-color: orange;
+		color: white;
+	}
 `
 
 const ContentContainer = styled.div`

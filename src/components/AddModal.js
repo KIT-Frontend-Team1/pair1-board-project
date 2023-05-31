@@ -37,6 +37,8 @@ const AddModal = ({ setIsModalOpen, isModalOpen }) => {
 		e.preventDefault()
 		console.log('submmit', Text, Img)
 		onAddPost(Text, Img)
+		alert('글이 추가되었습니다.')
+		setIsModalOpen(false)
 	}
 
 	//포스트 추가로직
@@ -55,9 +57,15 @@ const AddModal = ({ setIsModalOpen, isModalOpen }) => {
 			<Form onSubmit={onSubmit}>
 				<RelativeContainer>
 					<GrFormClose size="50px" onClick={onClickModalClose} />
-					<div>포스트 작성하는 곳</div>
+					<Title>New Post</Title>
 					{/*이미지 업로드 */}
-					<input type="file" accept="image/*" multiple onChange={onChangeImg} />
+					<ImgInput
+						type="file"
+						accept="image/*"
+						multiple
+						onChange={onChangeImg}
+					/>
+					<div>* 사진을 여러장 첨부 가능 : 현재 {Img.length}개</div>
 					<Input onChange={onChangeinput} value={Text} />
 					<Button>POST</Button>
 				</RelativeContainer>
@@ -67,6 +75,15 @@ const AddModal = ({ setIsModalOpen, isModalOpen }) => {
 }
 export default AddModal
 
+const ImgInput = styled.input`
+	font-size: 20px;
+	padding-left: 100px;
+`
+const Title = styled.div`
+	color: orange;
+	font-size: 30px;
+	margin: 10px;
+`
 const Input = styled.input`
 	margin-top: 30px;
 	width: 500px;
@@ -108,9 +125,9 @@ const Button = styled.button`
 	width: 100px;
 	height: 50px;
 	border-radius: 25px;
+	margin-top: 20px;
+	:hover {
+		background-color: orange;
+		color: white;
+	}
 `
-
-// let fileURLs = []
-// for (let i = 0; i < fileArr.length; i++) {
-// 	// const nowImgUrl = URL.createObjectURL(fileArr[i])
-// }

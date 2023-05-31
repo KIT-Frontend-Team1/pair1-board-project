@@ -4,8 +4,8 @@ import Pagination from 'react-js-pagination'
 import PostList from './PostList'
 
 //Paging : 페이지네이션. mainPage에서 데이터를 받아와 현재 페이지에 해당하는
-//데이터를 잘라서 렌더링합니다.
-//해당 페이지의 포스트와 버튼 컨테이너가 들어있습니다.
+//데이터를 잘라서 렌더링한다.
+//해당 페이지의 포스트와 버튼 컨테이너가 있음.
 const Paging = ({ data }) => {
 	//currentPage: 현재 페이지
 	const [currentPage, setCurrentPage] = useState(1)

@@ -23,6 +23,11 @@ button{
     border:none;
     outline:none;
 }
+textarea{
+    border:none;
+    outline:none;
+    
+}
 `
 
 export default GlobalStyles

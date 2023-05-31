@@ -4,14 +4,16 @@ import Layout from '../components/Layout'
 import Paging from './components/Pagination'
 import AddModal from '../components/AddModal'
 import { usePostContext } from '../context/postContext'
-//mainpage
+import LoadingPage from './loadingPage'
+
+//mainpage : 가장 메인이 되는 페이지 입니다.
 const MainPage = () => {
 	//addModal이 보이면 true, 아니면 false
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	//data : post로 뿌려줄 데이터. 초기 데이터는 faker에서 가져온 DATA.
 	const [data, dispatch] = usePostContext()
 
-	return (
+	return data && data.length > 0 ? (
 		<Wrapper>
 			{isModalOpen && (
 				<AddModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
@@ -20,6 +22,8 @@ const MainPage = () => {
 				<Paging data={data} />
 			</Layout>
 		</Wrapper>
+	) : (
+		<LoadingPage />
 	)
 }
 
